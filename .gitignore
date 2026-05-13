@@ -1,0 +1,29 @@
+# ── Node / Frontend ──────────────────────────
+node_modules/
+dist/
+build/
+coverage/
+*.log
+
+# ── Python / Backend ─────────────────────────
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# ── Environment & Secrets ────────────────────
+.env
+.env.local
+.env.production
+
+# ── ChromaDB local data ─────────────────────
+chroma_data/
+
+# ── OS files ─────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── IDE ──────────────────────────────────────
+.vscode/
+.idea/
