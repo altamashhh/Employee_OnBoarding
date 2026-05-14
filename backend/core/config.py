@@ -15,7 +15,7 @@ class Settings(BaseSettings):
 
     # ── ChromaDB ────────────────────────────────────────────
     CHROMA_PERSIST_DIR: str = str(Path.home() / ".onboardai" / "chroma_data")
-    CHROMA_COLLECTION: str = "onboarding_docs"
+    CHROMA_COLLECTION: str = "onboarding_docs_gemini"
 
     # ── Chunking ────────────────────────────────────────────
     CHUNK_SIZE: int = 800
