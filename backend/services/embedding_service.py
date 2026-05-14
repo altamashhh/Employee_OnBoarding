@@ -1,14 +1,13 @@
 """Embedding service — generate vector embeddings using sentence-transformers."""
 
-from sentence_transformers import SentenceTransformer
-
-_model: SentenceTransformer | None = None
+_model = None
 
 
-def _get_model() -> SentenceTransformer:
+def _get_model():
     """Lazy-load the embedding model (singleton)."""
     global _model
     if _model is None:
+        from sentence_transformers import SentenceTransformer
         _model = SentenceTransformer("all-MiniLM-L6-v2")
     return _model
 
@@ -25,3 +24,4 @@ def get_query_embedding(text: str) -> list[float]:
     model = _get_model()
     embedding = model.encode(text, show_progress_bar=False)
     return embedding.tolist()
+
