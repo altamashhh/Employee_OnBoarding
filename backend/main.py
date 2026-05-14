@@ -1,5 +1,7 @@
 """FastAPI application entry point — no business logic here."""
 
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -12,10 +14,13 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# ── CORS (allow all origins for development) ────────────────
+# ── CORS ─────────────────────────────────────────────────────
+_frontend_url = os.getenv("FRONTEND_URL", "")
+_origins = [_frontend_url] if _frontend_url else ["*"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

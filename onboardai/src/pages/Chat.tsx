@@ -16,11 +16,25 @@ interface Message {
 
 export default function Chat() {
   const [userId, setUserId] = useState<string>('');
+
+  // Read user name from profile
+  const getProfileName = () => {
+    try {
+      const saved = localStorage.getItem('onboardProfile');
+      if (saved) {
+        const profile = JSON.parse(saved);
+        const firstName = (profile.name || '').split(' ')[0];
+        return firstName || 'there';
+      }
+    } catch (e) { /* ignore */ }
+    return 'there';
+  };
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
       role: 'ai',
-      text: "Welcome back, Alex! I'm your onboarding assistant. How can I help you today?",
+      text: `Welcome back, ${getProfileName()}! I'm your onboarding assistant. How can I help you today?`,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);

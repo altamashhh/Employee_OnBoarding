@@ -10,7 +10,7 @@ export default function Dashboard() {
   const [uploadStatus, setUploadStatus] = useState('');
   const [documents, setDocuments] = useState<string[]>([]);
   const [planStats, setPlanStats] = useState({ total: 16, completed: 12, pending: 4, percent: 65 });
-  const [profile, setProfile] = useState({ name: 'Alex', role: '', department: '' });
+  const [profile, setProfile] = useState({ name: '', role: '', department: '' });
 
   useEffect(() => {
     // Load profile

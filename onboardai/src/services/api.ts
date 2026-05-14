@@ -3,7 +3,7 @@
  * All calls go through the Vite proxy → http://localhost:8001
  */
 
-const API_BASE = '/api';
+const API_BASE = import.meta.env.VITE_API_URL || '/api';
 
 // ── Upload ──────────────────────────────────────────────────
 export async function uploadDocument(file: File) {
